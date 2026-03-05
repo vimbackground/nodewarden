@@ -71,7 +71,7 @@ function toProfile(user: User, env: Env): ProfileResponse {
     usesKeyConnector: false,
     masterPasswordHint: null,
     culture: 'en-US',
-    twoFactorEnabled: !!user.totpSecret || isTotpEnabled(env.TOTP_SECRET),
+    twoFactorEnabled: !!user.totpSecret,
     key: user.key,
     privateKey: user.privateKey,
     accountKeys: null,

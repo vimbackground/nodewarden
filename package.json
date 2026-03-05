@@ -7,13 +7,9 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "npm run web:build && wrangler dev -c wrangler.toml",
-    "dev:worker": "wrangler dev -c wrangler.toml",
-    "web:dev": "vite --config webapp/vite.config.ts",
-    "web:build": "vite build --config webapp/vite.config.ts",
-    "web:typecheck": "tsc -p webapp/tsconfig.json --noEmit",
+    "dev": "wrangler dev -c wrangler.toml",
     "build": "vite build --config webapp/vite.config.ts",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "wrangler deploy"
   },
   "keywords": [
     "bitwarden",
@@ -45,7 +41,10 @@
     "wrangler": "^4.69.0"
   },
   "dependencies": {
+    "@noble/hashes": "^2.0.1",
     "@tanstack/react-query": "^5.90.21",
+    "@zip.js/zip.js": "^2.8.22",
+    "fflate": "^0.8.2",
     "lucide-preact": "^0.575.0",
     "preact": "^10.28.4",
     "qrcode-generator": "^2.0.4",

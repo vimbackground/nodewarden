@@ -30,13 +30,13 @@ English：[`README_EN.md`](./README_EN.md)
 | 文件夹 / 收藏 | ✅ | ✅ | 常用管理能力可用 |
 | 全量同步 `/api/sync` | ✅ | ✅ | 已做兼容与性能优化 |
 | 附件上传/下载 | ✅ | ✅ | 基于 Cloudflare R2 |
-| 导入功能 | ✅ | ✅ | 覆盖常见导入路径 |
+| 导入导出功能 | ✅ | ✅ | 完整实现，含 Bitwarden 密码库+附件 ZIP 导入 |
 | 网站图标代理 | ✅ | ✅ | 通过 `/icons/{hostname}/icon.png` |
 | passkey、TOTP字段 | ❌ | ✅ |官方需要会员，我们的不需要 |
 | Send | ✅ | ✅ | 已支持文本 Send 与文件 Send |
 | 多用户 | ✅ | ✅ | 完整的用户管理，邀请机制 |
 | 组织/集合/成员权限 | ✅ | ❌ | 没必要实现 |
-| 登录 2FA（TOTP/WebAuthn/Duo/Email） | ✅ | ⚠️ 部分支持 | 仅支持 TOTP（通过 `TOTP_SECRET`） |
+| 登录 2FA（TOTP/WebAuthn/Duo/Email） | ✅ | ⚠️ 部分支持 | 仅支持用户级 TOTP |
 | SSO / SCIM / 企业目录 | ✅ | ❌ | 没必要实现 |
 | 紧急访问 | ✅ | ❌ | 没必要实现 |
 | 管理后台 / 计费订阅 | ✅ | ❌ | 纯免费 |
@@ -108,6 +108,10 @@ npm run dev
 
 **Q: 如何备份数据？**  
 A: 在客户端中选择「导出密码库」，保存 JSON 文件。
+
+**Q: 导入导出支持哪些格式？**  
+A: 支持 Bitwarden `json/csv/密码库+附件 zip` 和 NodeWarden `密码库+附件 json`（均含加密模式），且导入下拉中看到的格式都可直接导入。  
+A: 另外支持直接导入 Bitwarden `密码库+附件 zip`，这条路径官方 Bitwarden Web 不支持。
 
 **Q: 忘记主密码怎么办？**  
 A: 无法恢复，这是端到端加密的特性。建议妥善保管主密码。
